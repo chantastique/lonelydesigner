@@ -1,0 +1,78 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import 'variables';
+@import 'mixins';
+
+body {
+  font: 100% $body-type;
+  color: $black;
+}
+
+h1 {
+	font: 4rem $header-type;
+	color: $white;
+	padding: 20px;
+}
+
+h2 {
+	font-size: 1.7rem;
+	text-align: right;
+	font-weight: 700;
+	}
+
+header {
+	height: $hcol;
+
+	h2 {
+		font-size: 1.9rem;
+		font-weight: 300;
+	}
+}
+
+p {
+	font-size: 1.3rem;
+}
+
+.break {
+	display: block;
+}
+
+.line {
+	width: 40%;
+	height: 0.3em;
+	background: $color;
+	margin: 0 auto;
+}
+
+.little-t {
+	font-size: 2rem;
+}
+
+.h1-container {
+	background: $color;
+	height: $hcol;
+	@include background-image(url("../dot.svg"));
+	background-position: 90% 10%;
+	background-repeat: no-repeat;
+	background-size: 25px;
+}
+
+.h2-container, article {
+	margin-top: 1.5em;
+}
+
+.container {
+	header {
+		@include outer-container;
+		.h1-container { @include span-columns(4); }
+		.h2-container { @include span-columns(6); }
+	}
+
+	section {
+	  @include outer-container;
+	  .h2-container { @include span-columns(3); @include shift(1); }
+	  article { @include span-columns(6); }
+	}
+}
+
